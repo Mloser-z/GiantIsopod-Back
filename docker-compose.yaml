@@ -1,0 +1,23 @@
+version: '3'
+networks:
+  flask-site:
+services:
+  flask-app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    networks:
+      - flask-site
+    ports:
+      - "5000"
+    
+  nginx:
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    networks:
+      - flask-site
+    depends_on:
+      - flask-app
+    ports:
+      - "8081:8081"

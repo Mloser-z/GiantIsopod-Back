@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 
 
 class Image(Resource):
-    """Restful class
+    """Restful class for image resource.
 
     Args:
         Resource (_type_): Parent Class

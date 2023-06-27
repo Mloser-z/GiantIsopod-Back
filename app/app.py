@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
 
-from blueprints.image import bp as image_bp
+from blueprints.bp_image import bp as bp_image
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
-app.register_blueprint(image_bp)
+app.register_blueprint(bp_image)
 CORS(app=app, supports_credentials=True)
 
 if __name__ == '__main__':
