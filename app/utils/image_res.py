@@ -1,15 +1,54 @@
-class ImageBrief:
+class ImageBase:
+    """base class for image
+    """
+
+    def __init__(self, url: str, label: str) -> None:
+        """init instance with url, label
+
+        Args:
+            url (str): path to get image
+            label (str): class of image
+        """
+        self.url = url
+        self.label = label
+
+
+class ImageBrief(ImageBase):
+    """Brief information of one image
+
+    Args:
+        ImageBase (_type_): _description_
+    """
+
     def __init__(self, url: str, label: str, message: str) -> None:
-        """Brief information of one image
+        """init instance with url, label, message
 
         Args:
             url (str): path to get image
             label (str): class of image
             message (str): additional information
         """
-        self.url = url
-        self.label = label
+        super().__init__(url, label)
         self.message = message
+
+
+class ImageSimi(ImageBase):
+    """Similarity information of one image
+
+    Args:
+        ImageBase (_type_): _description_
+    """
+
+    def __init__(self, url: str, label: str, similarity: float) -> None:
+        """init instance with url, label, similarity
+
+        Args:
+            url (str): path to get image
+            label (str): class of image
+            similarity (float): similarity of image
+        """
+        super().__init__(url, label)
+        self.similarity = similarity
 
 
 class ImagesRes:
